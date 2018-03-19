@@ -19,8 +19,8 @@ let allUrls = require("./routes/allUrls");
 // routes
 app.use("/", index);
 app.use("/all", allUrls);
-app.use("/shortenurl", shortenUrl);
-app.use("/expandurl", expandUrl);
+app.use("/shorten", shortenUrl);
+app.use("/expand", expandUrl);
 
 // connect to database
 const dbUrl = process.env.MONGODB_URI;

@@ -4,10 +4,11 @@ let mongoose = require("mongoose");
 let URL = require("../models/url-model");
 
 router.get("/", (req, res) => {
-  URL.remove(function(err) {
+  console.log("In index.js ...")
+  URL.remove((err) => {
     if (err) return handleError(err);
   });
-  console.log("All books deleted from database...let's start afresh");
+  console.log("All books deleted from database...starting afresh");
 
   res.sendFile("index.html", { root: __dirname });
 });

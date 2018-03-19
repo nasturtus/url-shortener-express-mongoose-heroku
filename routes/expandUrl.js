@@ -3,9 +3,10 @@ let router = express.Router();
 let mongoose = require("mongoose");
 let URL = require("../models/url-model");
 
-router.get("/:id", (req, res) => {
+router.get("/:id", (req, res, next) => {
   let id = req.params.id;
   URL.find({ hash: id }, (err, result) => {
+    if (err) next(err);
     if (result.length === 0) {
       res.json(`There is no long URL registered for hash ${id}.`);
     } else {
